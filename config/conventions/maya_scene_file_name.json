@@ -1,0 +1,33 @@
+{
+  "style": "lower_camel_case",
+  "nullable": false,
+  "structure": "(shot)_(name).(ext)",
+  "groups": {
+    "shot": {
+      "characters": "a-zA-Z",
+      "validators": [
+        {
+          "type": "function",
+          "module_name": "naming_utils",
+          "function_name": "get_shot_names"
+        }
+      ]
+    },
+    "name": {
+      "characters": "a-zA-Z",
+      "validators": [
+        {
+          "filename": "dict_english"
+        }
+      ]
+    },
+    "ext": {
+      "characters": "a-zA-Z",
+      "validators": [
+        {
+          "filename": "func_maya_scene_file_extensions"
+        }
+      ]
+    }
+  }
+}

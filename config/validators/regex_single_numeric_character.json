@@ -1,0 +1,6 @@
+{
+  "name": "single_numeric_character",
+  "type": "regex",
+  "pattern": "([0-9])"
+}
+

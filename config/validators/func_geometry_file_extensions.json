@@ -1,0 +1,7 @@
+{
+  "type": "function",
+  "name": "image_file_extensions",
+  "module_name": "naming_utils",
+  "function_name": "get_geometry_file_extensions"
+}
+

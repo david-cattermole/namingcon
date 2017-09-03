@@ -1,0 +1,6 @@
+{
+  "name": "single_alpha_character",
+  "type": "regex",
+  "pattern": "([a-zA-Z])"
+}
+

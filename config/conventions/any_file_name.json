@@ -1,0 +1,24 @@
+{
+  "style": "lower_camel_case",
+  "nullable": false,
+  "structure": "(name).(ext)",
+  "groups": {
+    "name": {
+      "characters": "a-zA-Z0-9",
+      "validators": [
+        {
+          "type": "dictionary",
+          "words": ["nouns", "adjectives"]
+        }
+      ]
+    },
+    "ext": {
+      "characters": "a-zA-Z0-9",
+      "validators": [
+        {
+          "filename": "func_all_file_extensions"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "style": "lower_camel_case",
+  "nullable": false,
+  "structure": "(shot)_(name).(frame).(ext)",
+  "groups": {
+    "shot": {
+      "characters": "a-zA-Z0-9",
+      "validators": [
+        {
+          "type": "function",
+          "module_name": "naming_utils",
+          "function_name": "get_shot_names"
+        }
+      ],
+      "nullable": false
+    },
+    "name": {
+      "characters": "a-zA-Z",
+      "validators": [
+        {
+          "type": "dictionary",
+          "words": ["nouns"]
+        },
+        {
+          "type": "dictionary",
+          "words": ["adjectives"]
+        }
+      ],
+      "nullable": false
+    },
+    "frame": {
+      "style": "numbers_or_pound",
+      "validators": [
+        {
+          "filename": "regex_padded_number"
+        }
+      ],
+      "nullable": false
+    },
+    "ext": {
+      "characters": "a-z0-9",
+      "validators": [
+        {
+          "filename": "func_image_file_extensions"
+        }
+      ],
+      "nullable": false
+    }
+  }
+}

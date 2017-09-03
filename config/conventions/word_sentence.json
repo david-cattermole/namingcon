@@ -1,0 +1,17 @@
+{
+  "style": "lower_camel_case",
+  "nullable": false,
+  "structure": "(sentence)",
+  "groups": {
+    "sentence": {
+      "validators": [
+        {
+          "type": "dictionary",
+          "name": "english",
+          "language": "en",
+          "words": []
+        }
+      ]
+    }
+  }
+}

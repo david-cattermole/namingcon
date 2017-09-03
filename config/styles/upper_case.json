@@ -1,0 +1,4 @@
+{
+  "regex": "[A-Z]*",
+  "splitFunction": "upper_case"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "project_names",
+  "type": "function",
+  "module_name": "get_names",
+  "function_name": "get_project_names"
+}
+

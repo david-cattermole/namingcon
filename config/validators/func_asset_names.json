@@ -1,0 +1,7 @@
+{
+  "type": "function",
+  "name": "asset_names",
+  "module_name": "naming_utils",
+  "function_name": "get_asset_names"
+}
+

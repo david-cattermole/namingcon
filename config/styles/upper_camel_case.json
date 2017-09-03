@@ -1,0 +1,4 @@
+{
+  "regex": "[A-Z][a-z]*[A-Z][a-z]+[A-Za-z]*",
+  "splitFunction": "upper_camel_case"
+}

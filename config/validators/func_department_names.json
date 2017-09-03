@@ -1,0 +1,7 @@
+{
+  "name": "department_names",
+  "type": "function",
+  "module_name": "get_names",
+  "function_name": "get_department_names"
+}
+

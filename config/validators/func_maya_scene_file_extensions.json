@@ -1,0 +1,7 @@
+{
+  "type": "function",
+  "name": "maya_scene_file_extensions",
+  "module_name": "naming_utils",
+  "function_name": "get_maya_scene_file_extensions"
+}
+

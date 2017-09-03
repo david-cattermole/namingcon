@@ -1,0 +1,18 @@
+{
+  "style": "lower_camel_case",
+  "nullable": false,
+  "characters": "a-zA-Z",
+  "structure": "(text)",
+  "groups": {
+    "text": {
+      "validators": [
+        {
+          "type": "dictionary",
+          "name": "english",
+          "language": "en",
+          "words": []
+        }
+      ]
+    }
+  }
+}

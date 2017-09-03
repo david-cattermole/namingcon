@@ -1,0 +1,83 @@
+{
+  "style": "lower_camel_case",
+  "nullable": false,
+  "structure": "(shot)(under)(name)(dot0)(frame)(dot1)(ext)",
+  "groups": {
+    "shot": {
+      "characters": "a-zA-Z0-9",
+      "validators": [
+        {
+          "type": "function",
+          "module_name": "naming_utils",
+          "function_name": "get_shot_names"
+        }
+      ],
+      "nullable": false
+    },
+    "under": {
+      "characters": "_",
+      "validators": [
+        {
+          "type": "function",
+          "module_name": "naming_utils",
+          "function_name": "get_separator_chars"
+        }
+      ],
+      "nullable": false
+    },
+    "name": {
+      "characters": "a-zA-Z",
+      "validators": [
+        {
+          "type": "dictionary",
+          "words": ["nouns"]
+        },
+        {
+          "type": "dictionary",
+          "words": ["adjectives"]
+        }
+      ],
+      "nullable": false
+    },
+    "dot0": {
+      "characters": ".",
+      "validators": [
+        {
+          "type": "function",
+          "module_name": "naming_utils",
+          "function_name": "get_separator_chars"
+        }
+      ],
+      "nullable": false
+    },
+    "frame": {
+      "style": "numbers_or_pound",
+      "validators": [
+        {
+          "filename": "regex_padded_number"
+        }
+      ],
+      "nullable": false
+    },
+    "dot1": {
+      "characters": ".",
+      "validators": [
+        {
+          "type": "function",
+          "module_name": "naming_utils",
+          "function_name": "get_separator_chars"
+        }
+      ],
+      "nullable": false
+    },
+    "ext": {
+      "characters": "a-z0-9",
+      "validators": [
+        {
+          "filename": "func_image_file_extensions"
+        }
+      ],
+      "nullable": false
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "style": "upper_camel_case",
+  "nullable": false,
+  "structure": "(name)(variant)",
+  "groups": {
+    "name": {
+      "characters": "a-zA-Z",
+      "validators": [
+        {
+          "type": "dictionary",
+          "words": ["nouns"]
+        }
+      ]
+    },
+    "variant": {
+      "characters": "0-9",
+      "validators": [
+        {
+          "filename": "regex_single_numeric_character"
+        }
+      ]
+    }
+  }
+}

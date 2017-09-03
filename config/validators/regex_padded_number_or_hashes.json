@@ -1,0 +1,6 @@
+{
+  "name": "padded_number_or_hashes",
+  "type": "regex",
+  "pattern": "([0-9]|[\\#]+)"
+}
+

@@ -1,0 +1,16 @@
+{
+  "style": "upper_case",
+  "nullable": false,
+  "structure": "(name)",
+  "groups": {
+    "name": {
+      "characters": "A-Z",
+      "validators": [
+        {
+          "type": "dictionary",
+          "words": ["nouns"]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "regex": ".*",
+  "splitFunction": "whitespace_split"
+}
