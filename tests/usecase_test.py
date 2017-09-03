@@ -4,12 +4,12 @@ Typical use cases.
 
 import sys
 import random
-import baseLib
+import base_lib
 import naming_utils
 import namingcon.lib as lib
 
 
-class UseCase(baseLib.BaseCase):
+class UseCase(base_lib.BaseCase):
 
     def test1(self):
         texts = [

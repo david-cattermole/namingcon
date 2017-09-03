@@ -5,7 +5,6 @@ Heart of the naming convention API.
 import os
 import imp
 import re
-import abc
 import sys
 import uuid
 import collections
@@ -353,9 +352,6 @@ class DictValidator(Validator):
     """
     def __init__(self, words=None, language=None, excludes=None, *args, **kwargs):
         super(DictValidator, self).__init__(*args, **kwargs)
-
-        # if language is None:
-        #     language = 'en'
         assert isinstance(words, list)
         self._language = language
         self._word_names = words
@@ -376,41 +372,32 @@ class DictValidator(Validator):
         excludes = self._excludes
         words_path, words_list = load_words_config(words, excludes=excludes)
 
-        speller_type = None
         speller = None
         if language is False:
             if len(words_list) > 0:
-                speller_type = 'request_pwl_dict'
                 speller = enchant.request_pwl_dict(words_path)
             else:
-                speller_type = 'no language, no words_list'
                 speller = None
 
         elif language is True:
             if len(words_list) > 0:
-                speller_type = 'DictWithPWL1'
                 speller = enchant.DictWithPWL(
                     default_lang,
                     words_path)
             else:
-                speller_type = 'Dict1'
                 speller = enchant.Dict()
 
         elif language is None:
             if len(words_list) > 0:
-                speller_type = 'DictWithPWL2'
                 speller = enchant.DictWithPWL(
                     self._default_lang,
                     words_path)
             else:
-                speller_type = 'Dict2'
                 speller = enchant.Dict(default_lang)
 
         elif isinstance(language, basestring):
-            speller_type = 'Dict3'
             speller = enchant.Dict(language)
 
-        # print 'speller', speller, speller_type
         self._speller = speller
         return self._speller
 
@@ -641,7 +628,7 @@ class Text(object):
         for grp in grps:
             name = grp.get_name()
             if name not in names:
-                print 'warning, bad name.'
+                print 'namingcon: Text: Warning, bad name given.'
                 continue
             text = text.replace('(%s)' % name, grp.get_text(), 1)
         return text
@@ -698,7 +685,7 @@ class Text(object):
 
     def check_map(self):
         bits = [1] * len(self._raw_text)
-        corrections = self.correction_char_map()
+        corrections = self.correction_map()
         for c in corrections:
             if c is None:
                 continue
@@ -730,7 +717,7 @@ class Text(object):
                 result.append(x)
         return result
 
-    def correction_char_map(self, max_num=None):
+    def correction_map(self, max_num=None):
         corrections = self.corrections(max_num=max_num)
         for c in corrections:
             start, end = c.get_map_range()

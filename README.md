@@ -4,65 +4,57 @@ Naming Convention is used to provide an API for parsing and validating user text
 
 This project will help with parsing and validating user input text for correctness.
 
+Please note this project is still a work in progress and requires more work before the tool is robust. This project should not be used in production without testing beforehand.  
+
 # Goal
 
 Our goal:
 > Help users input text that follows a convention, is spelled correctly and reduces similar synonymous words. 
 
-An application that expects user text input may be incorrect, we aim to help users provide correct input, allowing for less customised and more structured data.
+An application that expects user text input may be incorrect, we aim to help users provide correct input, allowing for more structured and less "customised" data.
 
 # Features
 
-- validate text
-- define validate character set / encoding
-- define naming styles
-- define naming conventions
-- provide suggestions to users
-- provide cascading hierarchical centralised word lists.
-  - some words are common across an entire domain.
-  - some words will only be used on a single project.
-- allow mechanisms for reading word lists from a file system file.
-- allow mechanisms for reading word lists from a network database.
-- cache word lists locally per-user.
-  - update every X minutes.
-- add / remove / update centralised word list entries.
-- use re-mapping suggestions for new names unlisted in a database.
-  - when defining a new name for the database, the name is checked for simplicity and possible re-use of names.
-- log user suggestions in order to build up a 'memory' and improve hit-rate for calculated suggestions.
+Below we list the feature set of this project, both currently supported and planned future features.
 
+## Supported 
 
-Convention must be correct.
-- correct number of split chars
-- no bad chars
-- define the split chars and groups.
-- word type must be correct
+- Validate text based on a convention or nomenclature
+- Define validate character set
+- Define naming styles
+- Define naming conventions
+- Provide suggestions to users
+- Cache word lists to speed up performance.
+- Allow extensive configuration and re-use of configuration segments.
+  - Some words are common across an entire domain.
+  - Some words will only be used on a single project.
+- Allow mechanisms for reading word lists from a file system file.
+- Allow mechanisms for reading word lists from a network database.
+- Use suggestions for new names previously unused.
+  - When defining a new name for the database, the name is checked if it already exists, and encourages re-use of names.
 
-Style must be correct or ability to convert to.
-- to be written
+## Planned
 
-Each word must have correct spelling
-- to be written
-
-text parsing.
-1) split Text into Groups using convention.
-2) split Groups into Words using style.
-3) test spelling for each word.
-
+- Add / Remove / Update centralised word list entries.
+- Log user suggestions in order to build up a 'memory' and improve hit-rate for calculated suggestions.
 
 # Usage
 
-## Basic
+```python
+import namingcon.lib
+txt = namingcon.lib.Text('badSpellling', 'word_any')
 
-
-## Advanced
+print txt.check()
+print txt.best_guess()
+print txt.corrections()
+```
 
 # Installation
 
 ## Requirements
 
 - [Python 2.6+](http://www.python.org/downloads/)
-- [GNU Aspell](http://aspell.net/)
-- [aspell-python-py2](https://pypi.python.org/pypi/aspell-python-py2)
+- [pyenchant](https://pypi.python.org/pypi/pyenchant)
 
 # Naming Styles
 
@@ -90,12 +82,12 @@ You may also add more styles using config files.
 
 # Naming Structure
 
-# Custom Dictionaries
+# Custom Words / Dictionaries
 
 # Correctness
 
 Correctness is defined by:
-- Correct Spelling
+- Correct spelling
 - Text structure
 - Valid characters
 

@@ -1,1 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
+.coverage
+.idea/
+aspell/
+config/words/cache/
+htmlcov/
+convert_to_words.py
+scrapping.py
+
